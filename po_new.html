@@ -1,0 +1,42 @@
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="width: 78%;">
+<h2>New paste</h2>
+<form method="post" action="?a=paste" name="paste"><textarea style="width: 80%;" rows="10" name="code"></textarea><br>
+<table border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td>Language</td>
+<td>
+<select name="exposure"><option value="A">A</option><option value="B">A</option><option value="-">Other</option></select>
+</td>
+</tr>
+<tr>
+<td>Paste Expiration: </td>
+<td>
+<select name="exposure"><option value="-1">never</option><option value="0">10 min</option><option value="1">1 hour</option><option value="2">1 day</option><option value="3">1 week</option><option value="4">2 weeks</option><option value="4">1 month</option></select>
+</td>
+</tr>
+<tr>
+<td>Paste Exposure:
+</td>
+<td>
+<select name="exposure"><option value="0">Public</option><option value="1">Unlisted</option><option value="2">Private</option></select>
+</td>
+</tr>
+<tr>
+<td>Paste Name / Title: </td>
+<td><input name="name"></td>
+</tr>
+</tbody>
+</table>
+<input value="Paste!" type="submit"><br>
+</form>
+</td>
+<td valign="top">
+<h2>Latest public pastes</h2>
+</td>
+</tr>
+</tbody>
+</table>

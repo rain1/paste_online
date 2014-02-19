@@ -1,0 +1,39 @@
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td>
+<h2>Administration Control Panel :: Manage users</h2><form method="post" action="?find" name="find">Find user:&nbsp;<input name="find_name"> [Select]&nbsp;<input value="Submit" type="submit"></form>
+<form method="post" action="?a=paste" name="paste"><br>
+<table border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td>Username:<br><small><span>Length must be between 1 and 20 characters.</span></small></td>
+<td>
+<input name="username" value=""> find all pastes<br></td>
+</tr>
+<tr>
+<td>Password:<br><small><span>Must be between 1 and 100 characters.</span></small> </td>
+<td>
+<input name="password"><br>
+</td>
+</tr>
+
+<tr>
+<td>Email:</td>
+<td><input name="email"></td>
+</tr>
+<tr>
+<td>Profile image:</td>
+<td><input name="image"></td>
+</tr><tr><td>Ban expires:</td><td><input name="banexpire"></td></tr><tr><td>Delete all pastes:</td><td><input name="delall" type="checkbox"></td></tr><tr><td>Delete user:</td><td><input name="deluser" type="checkbox"></td></tr><tr><td>Is admin:</td><td><input name="is_admin" type="checkbox"></td></tr><tr><td>Founder:<br><span><small>Founders have all administrative permissions and can never be<br>&nbsp;banned, deleted or altered by non-founder members</small>.</span></td><td><input name="founder" type="checkbox"></td></tr>
+</tbody>
+</table>
+<input value="Submit" type="submit"> <br>
+</form>
+</td>
+<td valign="top">
+<h2>OPTIONS</h2>Manage users<br><a href="./?a=acp_mp">Manage pastes</a>
+</td>
+</tr>
+</tbody>
+</table>
