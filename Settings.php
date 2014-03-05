@@ -1,0 +1,7 @@
+<?php
+$DATABASE_SERVER = "";
+$DATABASE_PORT = "";
+$DATABASE_USER = "";
+$DATABASE_NAME = "";
+$DATABASE_PASSWORD = "";
+?>

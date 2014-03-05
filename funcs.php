@@ -69,16 +69,6 @@ function get_root_directory(){
 l**/
 //fun-ction NOP() {}
 
-//[0] table name
-//[1] .. [n] columnname
-
-
-$SITESETTINGS = GetTableContents(general,array('Setting','Value'));
-for ($i = 0;$i < count($SITESETTINGS);$i++)
-{
-    $aNew[$SITESETTINGS[$i]['Setting']] = $SITESETTINGS[$i]['Value'];
-}
-$SITESETTINGS = $aNew;
 
 /*  #FUNCTION# ;===============================================================================
 
@@ -1005,7 +995,7 @@ Example .......:
 ;==========================================================================================*/
 function GetTableContents($sTable,$aColumns = 'ALL', $sExtraSQL = '', $debug = false, $rawinput = NULL)
 {
-   /* //~ if($sTable=='general'){$debug  = true;}
+   //~ if($sTable=='general'){$debug  = true;}
     $all = false;
     if($aColumns == 'ALL'){
         $all = true;
@@ -1074,7 +1064,6 @@ function GetTableContents($sTable,$aColumns = 'ALL', $sExtraSQL = '', $debug = f
     }
 	return $aReturn;
 
-	*/
 }
 
 
@@ -1092,7 +1081,7 @@ function IntToTime($table_name,$table_data){
         warn=>'Time',
         ''=>'Time'
     );
-    dbg($table_name);
+    //dbg($table_name);
     $times = explode("|",$time_columns[$table_name]);
     for($i= 0;$i < count($table_data); $i++){
         for($j= 0;$j < count($times); $j++){
