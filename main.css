@@ -53,3 +53,29 @@ a:hover {
 td{
 	vertical-align: top;
 }
+
+textarea{
+	width: 80%;
+}
+
+#searchbar{
+	float: right;
+}
+
+#links_bar{
+	text-align: right;
+}
+
+#main_table{
+	text-align: left;
+	width: 100%;
+}
+
+.wide_table{
+	text-align: left;
+	width: 100%;
+}
+
+.wide_input{
+}
+

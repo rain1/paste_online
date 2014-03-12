@@ -7,12 +7,12 @@
 			<script type="text/javascript" src="syntaxhighlighter/scripts/shBrushJScript.js"></script>
 			<script type="text/javascript" src="syntaxhighlighter/scripts/shBrushCSharp.js"></script>
 			<link type="text/css" rel="stylesheet" href="syntaxhighlighter/styles/shCoreDefault.css"/>
-			<link type="text/css" rel="stylesheet" href="po.css"/>
+			<link type="text/css" rel="stylesheet" href="main.css"/>
 		</head>
 	<body>
 		<div class="head">
-			<form method="post" action="?a=search" name="search" style="float: right;">
-				<table style="text-align: left;">
+			<form method="post" action="?a=search" name="search" id="searchbar">
+				<table>
 					<tbody>
 						<tr>
 							<td><input name="query"></td>
@@ -22,11 +22,11 @@
 				</table>
 			</form>
 			<h1>Paste Online</h1>
-			<div style="text-align: right;">{%$LOGIN_BAR%}</div>
+			<div id="links_bar">{%$LOGIN_BAR%}</div>
 		</div>
 		<br>
 		<div class="body">
-		<table style="text-align: left; width: 100%;">
+		<table id="main_table">
 		<tbody>
 		<tr>
 		<td style="width: 78%;">

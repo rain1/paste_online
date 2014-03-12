@@ -40,7 +40,7 @@ if (strlen($_GET['a']) == 0){
 	$_GET['a'] = 'new';
 }
 $test="abc";
-$file = ReplaceFile(str_replace("{FILE}","po_".$_GET['a'].".html",file_get_contents("main.html")));
+$file = ReplaceFile(str_replace("{FILE}","./auto_generated/".$_GET['a'].".html",file_get_contents("./auto_generated/main.html")));
 $file = TemplateReplace($file,array());
 print($file)
 ?>
