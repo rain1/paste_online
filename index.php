@@ -1,11 +1,11 @@
 <?php
 
 include 'Settings.php';
-include 'tables.php';
-include 'users.php';
-include 'login.php';
-include 'funcs.php';
-include 'database.php';
+include './includes/tables.php';
+include './includes/users.php';
+include './includes/ucp/login.php';
+include './includes/funcs.php';
+include './includes/database/database.php';
 
 error_reporting(E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR|E_WARNING|E_PARSE|E_USER_WARNING|E_USER_ERROR);
 
@@ -32,7 +32,7 @@ if($CURRENT_USER['ISFOUNDER'] ){
 $LOGIN_BAR .= '| <a href="./?a=acp_users">ACP</a>';
 }
 
-include 'ucp.php';
+include './includes/ucp/ucp.php';
 
 
 $CRITICAL_VAR = array();
@@ -40,7 +40,7 @@ if (strlen($_GET['a']) == 0){
 	$_GET['a'] = 'new';
 }
 $test="abc";
-$file = ReplaceFile(str_replace("{FILE}","./auto_generated/".$_GET['a'].".html",file_get_contents("./auto_generated/main.html")));
+$file = ReplaceFile(str_replace("{FILE}","./template/".$_GET['a'].".html",file_get_contents("./template/main.html")));
 $file = TemplateReplace($file,array());
 print($file)
 ?>
