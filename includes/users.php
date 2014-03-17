@@ -143,12 +143,14 @@ function UserExists($uid)
     return _mysql_num_rows($result);
 }
 
-function UserAdd($Name, $Password='password', $Email='', $MSN='', $Avatar='', $Joindate=0, $PostCount=0, $DefaultGroup=3, $ShowMSN=0, $ShowMail=0, $Warn=0, $IsFounder=0, $Rank=0, $Signature='',$UserColor='')
+function UserAdd($Name, $Password='password', $Email='', $Avatar='', $Joindate=0, $PostCount=0, $IsFounder=0, $IsAdmin=0 )
 {
     if(UserGetIDByName($Name)){
         return false;
     }
-    $query = 'INSERT INTO '.users.' (UserName,UserPassword,UserEmail,UserMSN,UserAvatar,UserJoinDate,UserPostCount,UserDefaultGroup,UserShowMSN,UserShowMail,UserWarn,UserFounder,UserRank,UserSignature,UserColor) VALUES (\''.$Name.'\',\''.md5($Password).'\',\''.$Email.'\',\''.$MSN.'\',\''.$Avatar.'\','.$Joindate.','.$PostCount.','.$DefaultGroup.','.$ShowMSN.','.$ShowMail.','.$Warn.','.$IsFounder.','.$Rank.',\''.$Signature.'\', \''.$UserColor.'\')';//secure it!!
+    $query = 'INSERT INTO '.users. "(UserID, UserName, UserPassword, UserEmail, UserAvatar, UserJoinDate, UserPostCount, UserFounder, UserAdmin)
+    VALUES('NULL','".$Name."','".md5($Password)."','".$Email."','".$Avatar."','".$Joindate."','".$PostCount."','".$IsFounder."','".$IsAdmin."')";//secure it!!
+    
     $result = _mysql_query($query);
     if (!$result){return false;}
     return $result;
