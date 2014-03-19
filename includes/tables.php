@@ -3,6 +3,7 @@
 define("this","this");
 define("attachments","attachments");
 define("bans","bans");
+define("pastes","pastes");
 define("bbcode","bbcode");
 define("drafts","drafts");
 define("forms","forms");

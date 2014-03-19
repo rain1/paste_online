@@ -42,12 +42,9 @@ function ProccessRegistration(){
         $Notification = "Account creation failed for unknown reason. <br> <a href=\"#\" onclick=\"history.go(-1)\">Retry</a> or <a href=\"../\">Go to board index</a>";
     }else{
         $FILE_PATH[$CURRENT_MODULE] = '../theme/default/UCP/success.html';
-<<<<<<< HEAD
         $Notification = "Your account has been successfully created <br> <a href=\"#\" onclick=\"history.go(-1)\">Retry</a> or <a href=\"../\">Go to board index</a>";
-=======
         $title = "Registration success!";
         $Notification = "Your account have been successfully created <br> <a href=\"#\" onclick=\"history.go(-1)\">Retry</a> or <a href=\"../\">Go to board index</a>";
->>>>>>> bdd59b3bb8e361c74a7b34f18c6d0922a70d7ec2
         Login($_POST['UserName'],$_POST['UserPassword'],true, 0);
         $Loginform = GetLoginForm();
         //GroupAddMember(3, $_POST['UserName'], 1, true);//add user to registered users

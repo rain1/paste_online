@@ -1,63 +1,17 @@
-﻿<span style="font-weight: bold;">{%$TITLE%}<br></span>
-By {%$AUTHOR_NAME%} on {%$PASTE_DATE%} | Language:
-{%$LANGUAGE%}|Size: {%$PASTE_SIZE%}| Hits: {%$HIT_COUNT%} |Expires:
-{%$EXPIRE%}<br>
-Download | Raw | Delete | Report <br>
+﻿<span style="font-weight: bold;">{%$paste[0]['title']%}<br></span>
+By {%$paste[0]['UserName']%} on {%$paste[0]['created']%} | Language:
+{%$paste[0]['language']%} | Expires:{%$paste[0]['expiration']%}<br>
+<!--Download | Raw | Delete | Report <br> -->
 <br>
-<pre class="brush: csharp;fontsize: 100; first-line: 1; ">using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-
-namespace Riigid
-{
-    static class Program
-    {
-        ///
-        /// The main entry point for the application.
-        ///
-        [STAThread]
-        static void Main()
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Riigid());
-        }
-    }
-}
-
-
+<pre class="brush: {%$paste[0]['language']%};fontsize: 100; first-line: 1; ">{%$paste[0]['paste']%}
 </pre>
 <br>
 <br>
 <a class="bright" style="float: right;" href="?a=new">New paste</a>
 <span style="font-weight: bold;">raw</span><br>
-<textarea cols="100" rows="10" name="raw">using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-
-namespace Riigid
-{
-    static class Program
-    {
-        ///
-        /// The main entry point for the application.
-        ///
-        [STAThread]
-        static void Main()
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Riigid());
-        }
-    }
-}
-
-
-</textarea></td>
+<textarea cols="100" rows="10" name="raw">{%$paste[0]['paste']%}</textarea></td>
 <td class="rightcol">
-<h2>Latest public pastes</h2>
+{{./template/right.html}}
 </td>
 </tr>
 </tbody>

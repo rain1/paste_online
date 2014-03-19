@@ -48,9 +48,9 @@ if (strlen($_GET['a']) == 0){
 }
 
 if ($_GET['a']=="paste"){
-	
-	
-	
+
+
+
 
 
 	$expiration_values = array(
@@ -64,14 +64,57 @@ if ($_GET['a']=="paste"){
 	);
 
 
-	
- $sql = "INSERT INTO pastes (title,paste,expiration,exposure,created,id,uid,language) VALUES ('".$_POST['name']."','".$_POST['code']."','".(time()+$expiration_values[$_POST['expiration']])."','".$_POST['exposure']."','".time()."','NULL','".$CURRENT_USER['UID']."','".$_POST['language']."')";
+
+ $sql = "INSERT INTO pastes (title,paste,expiration,exposure,created,id,uid,language) VALUES ('".mysql_real_escape_string($_POST['name'])."','".mysql_real_escape_string($_POST['code'])."','".(time()+$expiration_values[$_POST['expiration']])."','".$_POST['exposure']."','".time()."','NULL','".$CURRENT_USER['UID']."','".$_POST['language']."')";
  _mysql_query($sql);
+		$_GET['a'] = 'notification';
+        $Notification = 'New paste have been created! <br>Click <a href="./?a=view&id='.$id.'" >here</a> if your browser does not automatically redirect you.';
+		$id = _mysql_insert_id();
+		header('Refresh: 0; URL=./?a=view&id='.$id);
  //dbg($sql);
 
 
 
 
+}
+
+if ($_GET['a']=="view"){
+	$id = intval($_GET['id']);
+	if(strlen($id)){
+		$paste = GetTableContents('','','',false,'SELECT * FROM pastes JOIN users ON pastes.uid = users.UserID  WHERE id='.$id);
+		$paste[0]['created'] = date("d M Y H:i:s",$paste[0]['created']);
+		if($paste[0]['expiration'] == '2147483647'){
+			$paste[0]['expiration']= "Never";
+		}else{
+			$paste[0]['expiration'] = date("d M Y H:i:s",$paste[0]['expiration']);
+		}
+		$lng = array(
+			"as3"=>'AS3',
+			"bash"=>'Bash',
+			"cf"=>'ColdFusion',
+			"csharp"=>'CSharp',
+			"cpp"=>'Cpp',
+			"css"=>'Css',
+			"delphi"=>'Delphi',
+			"diff"=>'Diff',
+			"groovy"=>'Groovy',
+			"js"=>'JScript',
+			"java"=>'Java',
+			"jfx"=>'JavaFX',
+			"perl"=>'Perl',
+			"php"=>'Php',
+			"plain"=>'Plain',
+			"ps"=>'PowerShell',
+			"py"=>'Python',
+			"ruby"=>'Ruby',
+			"scala"=>'Scala',
+			"sql"=>'Sql',
+			"vb"=>'Vb',
+			"xml"=>'xml'
+		);
+
+		//dbg($paste);
+	}
 }
 
 

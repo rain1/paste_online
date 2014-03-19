@@ -5,7 +5,9 @@
 		<title>Paste Online :: {%$_GET['a']%}</title>
 		<script type="text/javascript" src="syntaxhighlighter/scripts/shCore.js"></script>
 			<script type="text/javascript" src="syntaxhighlighter/scripts/shBrushJScript.js"></script>
-			<script type="text/javascript" src="syntaxhighlighter/scripts/shBrushCSharp.js"></script>
+			<script type="text/javascript" src="syntaxhighlighter/scripts/shBrush{%$lng[$paste[0]['language']]%}.js"></script>
+			<script type="text/javascript" src="./template/jquery.js"></script>
+			<script  type="text/javascript" src="./template/datapush.js"></script>
 			<link type="text/css" rel="stylesheet" href="syntaxhighlighter/styles/shCoreDefault.css"/>
 			<link type="text/css" rel="stylesheet" href="./template/main.css"/>
 		</head>
