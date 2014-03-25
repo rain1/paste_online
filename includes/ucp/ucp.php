@@ -48,7 +48,7 @@ function ProccessRegistration(){
         Login($_POST['UserName'],$_POST['UserPassword'],true, 0);
         $Loginform = GetLoginForm();
         //GroupAddMember(3, $_POST['UserName'], 1, true);//add user to registered users
-        header('Refresh: 5; URL=../');
+        header('Refresh: 5; URL=./');
     }
     return;
 }
