@@ -32,7 +32,11 @@ $LOGIN_BAR = "";
 if ($CURRENT_USER['UID'] < 2){
 	$LOGIN_BAR .= '<a href="./?a=register">Register</a> | <a href="./?a=login">Login</a>';
 }else{
-	$LOGIN_BAR .= ' <a href="./?a=settings">settings</a> | <a href="./?a=logout">Logout</a> ';
+	if(IsFBUser($CURRENT_USER['UID'])){
+		$LOGIN_BAR .= ' <a href="./?a=logout">Logout</a> ';
+	}else{
+		$LOGIN_BAR .= ' <a href="./?a=settings">settings</a> | <a href="./?a=logout">Logout</a> ';
+	}
 }
 
 if($CURRENT_USER['ISFOUNDER'] ){
@@ -64,8 +68,8 @@ if ($_GET['a']=="paste"){
 	);
 
 
-
- $sql = "INSERT INTO pastes (title,paste,expiration,exposure,created,id,uid,language) VALUES ('".mysql_real_escape_string($_POST['name'])."','".mysql_real_escape_string($_POST['code'])."','".(time()+$expiration_values[$_POST['expiration']])."','".$_POST['exposure']."','".time()."','NULL','".$CURRENT_USER['UID']."','".$_POST['language']."')";
+//dbg($_POST['name'],mysqli_real_escape_string($DB,$_POST['code']));
+ $sql = "INSERT INTO pastes (title,paste,expiration,exposure,created,id,uid,language) VALUES ('".mysqli_real_escape_string($DB,$_POST['name'])."','".mysqli_real_escape_string($DB,$_POST['code'])."','".(time()+$expiration_values[$_POST['expiration']])."','".$_POST['exposure']."','".time()."','NULL','".$CURRENT_USER['UID']."','".$_POST['language']."')";
  _mysql_query($sql);
 		$_GET['a'] = 'notification';
         $Notification = 'New paste have been created! <br>Click <a href="./?a=view&id='.$id.'" >here</a> if your browser does not automatically redirect you.';

@@ -1,0 +1,39 @@
+﻿<h2>Settings</h2>
+<form method="post" action="?a=updateacc" name="paste"><br>
+	<table>
+		<tbody>
+			<tr>
+				<td>Username:</td>
+				<td>{%$USER[0]['UserName']%}</td>
+			</tr>
+			<tr>
+				<td>Password: </td>
+				<td><input name="password"><br></td>
+			</tr>
+			<tr>
+				<td>New password:</td>
+				<td><input name="newpassword" type="password"></td>
+			</tr>
+				<td>New passwordconfirm:</td>
+				<td><input name="newpasswordconf" type="password"></td>
+			</tr>
+			<tr>
+				<td>Email:</td>
+				<td><input value="{%$USER[0]['UserEmail']%}" name="email"></td>
+			</tr>
+			<tr>
+				<td>Profile image:</td>
+				<td><input value="{%$USER[0]['UserAvatar']%}" name="avatar"></td>
+			</tr>
+		</tbody>
+	</table>
+	<input value="Submit" type="submit"> forgot
+	password? forgot username?<br>
+</form>
+</td>
+<td class="rightcol">
+{{./template/right.html}}
+</td>
+</tr>
+</tbody>
+</table>

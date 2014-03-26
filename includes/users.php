@@ -143,14 +143,25 @@ function UserExists($uid)
     return _mysql_num_rows($result);
 }
 
-function UserAdd($Name, $Password='password', $Email='', $Avatar='', $Joindate=0, $PostCount=0, $IsFounder=0, $IsAdmin=0 )
+function IsFBUser($uid){
+	$result = _mysql_query("SELECT uid FROM users_fb WHERE uid = '".$uid."'");
+    return _mysql_num_rows($result);
+}
+
+function FBUserExists($uid)
 {
-    if(UserGetIDByName($Name)){
+    $result = _mysql_query("SELECT uid FROM users_fb WHERE username = '".$uid."'");
+    return _mysql_num_rows($result);
+}
+
+function UserAdd($Name, $Password='password', $Email='', $Avatar='', $Joindate=0, $PostCount=0, $IsFounder=0, $IsAdmin=0, $force=false )
+{
+    if(UserGetIDByName($Name) && $force == false){
         return false;
     }
     $query = 'INSERT INTO '.users. "(UserID, UserName, UserPassword, UserEmail, UserAvatar, UserJoinDate, UserPostCount, UserFounder, UserAdmin)
     VALUES('NULL','".$Name."','".md5($Password)."','".$Email."','".$Avatar."','".$Joindate."','".$PostCount."','".$IsFounder."','".$IsAdmin."')";//secure it!!
-    
+
     $result = _mysql_query($query);
     if (!$result){return false;}
     return $result;

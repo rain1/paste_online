@@ -21,7 +21,7 @@ while(true){
 		die();
 	}else{
 		sleep(1);
-		$arr = GetTableContents(pastes,array('title','language','created'),' WHERE created > '.($_GET['t']));
+		$arr = GetTableContents(pastes,array('id','title','language','created'),' WHERE created > '.($_GET['t']));
 	}
 }
 //dbg($arr);

@@ -3,6 +3,44 @@ databush  teha - server saaks ise andmeid saata
 Tagid
 */
 
+body{
+	background-color:#D8DDE8;
+}
+
+ul { list-style-type: none; }
+
+select, input:not([type=button]):not([type=submit]):not([type=checkbox]){
+	width:20em;
+	padding: 4px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #848484 #c1c1c1 #e1e1e1 #c1c1c1;
+	border-radius: 2px;
+}
+
+select:hover, input:not([type=button]):not([type=submit]):not([type=checkbox]):hover{
+	width:20em;
+	padding: 4px;
+	border-width: 1px;
+	border-style: solid;
+	border: 1px solid #BC2A4D;
+	border-radius: 2px;
+}
+
+select:focus, input:not([type=button]):not([type=submit]):not([type=checkbox]):focus{
+	width:20em;
+	padding: 4px;
+	border-width: 1px;
+	border-style: solid;
+	border: 1px solid #BC2A4D;
+	border-radius: 2px;
+}
+
+textarea:focus{
+	border: 1px solid #BC2A4D;
+	border-radius: 2px;
+}
+
 div.head {
     background-color:#2D5682;
     border-radius:5px;
@@ -17,9 +55,15 @@ table,tr,td {
 	border:0px;
 }
 
+input[type=submit]{
+	border: 1px solid #BC2A4D;
+	background: #EFEFEF url(".bg_button.gif") repeat bottom;
+	color: #BC2A4D;
+}
+
 h1 {
-	color: #ffffff;
-	text-shadow: 1px 2px 2px #15588a;
+	color: #B0B1B1;
+	text-shadow: 2px 4px 4px #15588a;
 }
 
 h2 {
@@ -77,5 +121,21 @@ textarea{
 }
 
 .wide_input{
+}
+
+#login_with_facebook{
+	display: inline-block;
+	height: 43px;
+	margin: 0px;
+	padding: 0px 20px 0px 52px;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 18px;
+	font-weight: 400;
+	color: #fff;
+	line-height: 41px;
+	background: #3b579d url(http://subinsb.com/wp-content/uploads/2013/12/fb_icon.png) no-repeat 14px 8px scroll;
+	border-radius: 4px;
+	text-decoration: none;
+	cursor:pointer;
 }
 
