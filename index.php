@@ -125,6 +125,22 @@ if ($_GET['a']=="view"){
 
 $test="abc";
 
+$most_popular_languages ="select language, count(*) from pastes group by language limit 3";
+
+//$test123 = GetTableContents('','','', false,$most_popular_languages );
+
+
+$test123 = GetTableContents('','','', false,$most_popular_languages );
+$top_3=($test123[0]["language"].": ".$test123[0]["count(*)"]."&nbsp;&nbsp;&nbsp;".$test123[1]["language"].": ".$test123[1]["count(*)"]."&nbsp;&nbsp;&nbsp;".$test123[2]["language"].": ".$test123[2]["count(*)"]."&nbsp;&nbsp;&nbsp;");
+
+/*for($i=0; count($test123); $i++){
+	print_r($test123[$i]["language"].": ".
+		$test123[$i]
+		["count(*)"]." ");
+	}
+*/
+//print_r($test123);
+
 $file = ReplaceFile(str_replace("{FILE}","./template/".$_GET['a'].".html",file_get_contents("./template/main.html")));
 $file = TemplateReplace($file,array());
 print($file)

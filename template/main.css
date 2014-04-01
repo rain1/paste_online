@@ -71,6 +71,11 @@ h2 {
 	text-shadow: 1px 2px 2px #15588a;
 }
 
+h6 {
+	color: #225985;
+	text-shadow: 2/6px 4/6px 4/6px #15588a;
+}
+
 a {
 	color: #cccccc;
 	text-shadow: 1px 2px 2px #15588a;
@@ -118,6 +123,11 @@ textarea{
 .wide_table{
 	text-align: left;
 	width: 100%;
+}
+
+b{
+	color: #225985 !important;
+	
 }
 
 .wide_input{
