@@ -1,5 +1,5 @@
 #include <IE.au3>
-;DirRemove ( "E:\Software\xampp\mysql\data\paste" ,1 )
+DirRemove ( "E:\Software\xampp\mysql\data\paste" ,1 )
 DirCopy(@ScriptDir&"\paste","E:\Software\xampp\mysql\data\paste",1)
 
 
@@ -41,7 +41,7 @@ _IEFormSubmit($oForm,1)
 Sleep(1000)
 
 $html = _IEBodyReadHTML($oIE)
-ConsoleWrite($html & @LF)
+;ConsoleWrite($html & @LF)
 If StringInStr($html,"By User32") and StringInStr($html,"Sample code") Then
 	ConsoleWrite("Success"&@CRLF)
 Else
