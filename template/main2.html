@@ -1,40 +1,15 @@
 ﻿<!DOCTYPE html>
-<html manifest="manifest.appcache">
+<html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Paste Online :: {%$_GET['a']%}</title>
 		<script type="text/javascript" src="syntaxhighlighter/scripts/shCore.js"></script>
 			<script type="text/javascript" src="syntaxhighlighter/scripts/shBrushJScript.js"></script>
 			<script type="text/javascript" src="syntaxhighlighter/scripts/shBrush{%$lng[$paste[0]['language']]%}.js"></script>
-			<script type="text/javascript" src="./template/jquery.js"></script>
-			<script  type="text/javascript" src="./template/ajaxbookmarks.js"></script>
-			<script  type="text/javascript" src="./template/datapush.js"></script>
 			<link type="text/css" rel="stylesheet" href="syntaxhighlighter/styles/shCoreDefault.css"/>
 			<link type="text/css" rel="stylesheet" href="./template/main.css"/>
 		</head>
 	<body>
-		<div class="head">
-			<form method="post" action="?a=search" name="search" id="searchbar">
-				<table>
-					<tbody>
-						<tr>
-							<td><input name="query"></td>
-							<td><input value="Search" type="submit"></td>
-						</tr>
-					</tbody>
-				</table>
-			</form>
-			<h1><a href="./">Paste Online</a></h1>
-			<div id="links_bar">{%$LOGIN_BAR%}</div>
-		</div>
-
-		<style type="text/css"> 
-			.inline{display:inline;} 
-		</style> 
-		<b class="top3">Top 3 languages: </b> 
-		<p class="inline">{%$top_3%}</p>
-
-		<br>
 		<div class="body">
 		<table id="main_table">
 		<tbody>

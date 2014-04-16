@@ -14,7 +14,7 @@ function getData(){
 			if(key=='timestamp'){
 				timestamp = obj[key];
 			}else{
-				arr[arr.length] = '<li><a class="bright" href="./?a=view&id='+obj[key]['id']+'">'+obj[key]['title']+'</a><br>['+obj[key]['language']+'] '+obj[key]['created']+"</li>";
+				arr[arr.length] = '<li><a class="bright" onmouseover="preview(this);" href="./?a=view&id='+obj[key]['id']+'" >'+obj[key]['title']+'</a><br>['+obj[key]['language']+'] '+obj[key]['created']+"</li>";
 			}
 		}
 		for(elem in arr){

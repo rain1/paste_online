@@ -82,7 +82,7 @@ if ($_GET['a']=="paste"){
 
 }
 
-if ($_GET['a']=="view"){
+if ($_GET['a']=="view" || $_GET['a']=="view2"){
 	$id = intval($_GET['id']);
 	if(strlen($id)){
 		$paste = GetTableContents('','','',false,'SELECT * FROM pastes JOIN users ON pastes.uid = users.UserID  WHERE id='.$id);
@@ -141,7 +141,11 @@ $top_3=($test123[0]["language"].": ".$test123[0]["count(*)"]."&nbsp;&nbsp;&nbsp;
 */
 //print_r($test123);
 
-$file = ReplaceFile(str_replace("{FILE}","./template/".$_GET['a'].".html",file_get_contents("./template/main.html")));
+$main = "main.html";
+if($_GET['a'] == 'view2'){
+	$main = "main2.html";
+}
+$file = ReplaceFile(str_replace("{FILE}","./template/".$_GET['a'].".html",file_get_contents("./template/".$main)));
 $file = TemplateReplace($file,array());
 print($file)
 ?>
