@@ -4,11 +4,14 @@ var timestamp = '0';
 function getData(){
 	//alert(timestamp);
 	$.ajax({
-	url:"latest.php?t="+timestamp,
+	url:"./latest.php?t="+timestamp,
 	async:true,
 	cache:false,
 
 	success:function(result){
+
+		//alert("ptsi: "+request_uri);
+
 		var obj = $.parseJSON(result);
 		for (key in obj) {
 			if(key=='timestamp'){
@@ -21,11 +24,12 @@ function getData(){
 			$("#target").append(arr[elem]);
 		}
 		arr =[];
+		//window.history.pushState({}, "", request_uri);
 		setTimeout("getData()",1000);
 	},
 
 	error: function(){
-		//alert("serve down");
+	    //alert("server down");
 		setTimeout("getData()",15000);
 	}
 

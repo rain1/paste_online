@@ -14,7 +14,6 @@ $DB_CONNECTED = false;
 $DB_CONNECTION = ConnectDataBase();
 $title = "none";
 
-
 if ($CURRENT_USER['UID'] == 0){
     $CURRENT_USER['UID'] = Login($_POST['UserName'], $_POST['UserPassword']);
     $CURRENT_USER['NAME'] = UserGetNameByID($CURRENT_USER['UID']);

@@ -18,7 +18,6 @@ Example .......:
 ;==========================================================================================*/
 function ConnectDataBase()
 {
-    print($MODE);
 	global $DB_CONNECTED;
 	//Make sure that only 1 connection is created
 	if($DB_CONNECTED != true) {

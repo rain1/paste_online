@@ -10,7 +10,9 @@ $connection = -1;
 $DB_CONNECTED = false;
 $DB_CONNECTION = ConnectDataBase();
 
+
 $arr = GetTableContents(pastes,array('id','title','language','created'),' WHERE created >= '.$_GET['t']);
+
 while(true){
 	if(count($arr)>0){
 		for($i = 0; $i < count($arr);$i++){
@@ -18,6 +20,7 @@ while(true){
 		}
 		$arr['timestamp']=time();
 		echo json_encode($arr);
+		file_put_contents ( "dbg.txt" , print_r("ret",true));
 		die();
 	}else{
 		sleep(1);
