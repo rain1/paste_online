@@ -1059,9 +1059,9 @@ function GetTableContents($sTable,$aColumns = 'ALL', $sExtraSQL = '', $debug = f
         if($debug){
             dbg("return ".$aReturn."end_return\n");
         }
-    if(array_search($sTable,array(attachments,bans,forms,post,report,sessions,topic,users,warn,''))){
+    /*if(array_search($sTable,array(attachments,bans,forms,post,report,sessions,topic,users,warn,''))){
         $aReturn = IntToTime($sTable,$aReturn);
-    }
+    }*/
 	return $aReturn;
 
 }

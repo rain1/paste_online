@@ -23,6 +23,7 @@ function getData(){
 		for(elem in arr){
 			$("#target").append(arr[elem]);
 		}
+		while($("#target li").length > 10){$("#target li").first().remove();}
 		arr =[];
 		//window.history.pushState({}, "", request_uri);
 		setTimeout("getData()",1000);

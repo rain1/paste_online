@@ -81,10 +81,30 @@ if ($_GET['a']=="paste"){
 
 }
 
+if ($_GET['a']=="delete"){
+		$id = intval($_GET['id']);
+	if(strlen($id)){
+		$paste = GetTableContents('','','',false,'SELECT * FROM pastes JOIN users ON pastes.uid = users.UserID  WHERE id='.$id);
+		$title="Permission denied";
+		$Notification = 'You do not have permission to delete this paste! <br>Click <a href="./?a=view&id='.$id.'" >here</a> if your browser does not automatically redirect you.';
+		if($paste[0]['UserID'] == $CURRENT_USER['UID'] && $CURRENT_USER['UID'] >= 38){
+			$title="Success";
+			$Notification = 'Paste have been successfully deleted! <br>Click <a href="./?a=view&id='.$id.'" >here</a> if your browser does not automatically redirect you.';
+			_mysql_query("DELETE FROM pastes WHERE id = ".$id);
+		}
+		$_GET['a'] = 'notification';
+		header('Refresh: 5; URL=./?a=new');
+	}
+}
+
 if ($_GET['a']=="view" || $_GET['a']=="view2"){
 	$id = intval($_GET['id']);
 	if(strlen($id)){
 		$paste = GetTableContents('','','',false,'SELECT * FROM pastes JOIN users ON pastes.uid = users.UserID  WHERE id='.$id);
+		$paste_actions = "";
+		if($paste[0]['UserID'] == $CURRENT_USER['UID'] && $CURRENT_USER['UID'] >= 38){
+			$paste_actions = " | <a class=\"bright\" href=\"?a=delete&id=".$_GET['id']."\">delete</a>";
+		}
 		$paste[0]['created'] = date("d M Y H:i:s",$paste[0]['created']);
 		if($paste[0]['expiration'] == '2147483647'){
 			$paste[0]['expiration']= "Never";

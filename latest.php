@@ -11,7 +11,7 @@ $DB_CONNECTED = false;
 $DB_CONNECTION = ConnectDataBase();
 
 
-$arr = GetTableContents(pastes,array('id','title','language','created'),' WHERE created >= '.$_GET['t']);
+$arr = $paste = GetTableContents('','','',false,"SELECT p.id, p.title, p.language, p.created FROM (SELECT id,title, language, created FROM pastes WHERE created >= ".$_GET['t']." ORDER BY created DESC) AS p limit 10 ");
 
 while(true){
 	if(count($arr)>0){

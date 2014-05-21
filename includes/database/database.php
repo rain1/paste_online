@@ -219,4 +219,18 @@ function _mysql_fetch_field($result) {
     return $res;
 }
 
+function _mysql_error($result) {
+    global $MODE,$DB;
+    if($MODE=='mysql'){
+        $res = mysql_error($result);
+    }elseif($MODE=='mysqli'){
+        $res =  mysqli_error($DB);
+        if($res == NULL){
+            return false;
+        }
+    }
+    return $res;
+}
+
+
 ?>
